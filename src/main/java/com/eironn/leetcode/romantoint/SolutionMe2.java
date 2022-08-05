@@ -3,8 +3,15 @@ package com.eironn.leetcode.romantoint;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution1 {
+@SuppressWarnings("DuplicatedCode")
+public class SolutionMe2 {
 
+    /**
+     * 10ms 左右，最快6ms
+     * 去掉了第一次的变量声明，小list去掉了continue的写法
+     * @param roman
+     * @return
+     */
     public int romanToInt(String roman) {
         Map<Character, Integer> map = new HashMap<Character, Integer>() {
             {
@@ -19,21 +26,19 @@ public class Solution1 {
         };
         char[] chars = roman.toCharArray();
         int resp = 0;
+        int addValue;
         for (int i = 0; i < chars.length; i++) {
-            char current = chars[i];
-            char nextChar;
             if (i + 1 < chars.length) {
-                nextChar = chars[i + 1];
+                if (map.get(chars[i]) >= map.get(chars[i + 1])) {
+                    addValue = map.get(chars[i]);
+                } else {
+                    addValue = map.get(chars[i + 1]) - map.get(chars[i]);
+                    i++;
+                }
             } else {
-                resp += map.get(current);
-                continue;
+                addValue = map.get(chars[i]);
             }
-            if (map.get(current) >= map.get(nextChar)) {
-                resp += map.get(current);
-            } else {
-                resp += map.get(nextChar) - map.get(current);
-                i++;
-            }
+            resp += addValue;
         }
         return resp;
     }

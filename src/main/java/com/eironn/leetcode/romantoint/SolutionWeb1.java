@@ -4,8 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 @SuppressWarnings("DuplicatedCode")
-public class Solution2 {
+public class SolutionWeb1 {
 
+    /**
+     * 网友答案，11ms 最快6ms 和我第二个的差不多
+     *
+     * @param s
+     * @return
+     */
     public int romanToInt(String s) {
         Map<Character, Integer> map = new HashMap<Character, Integer>() {{
             put('I', 1);
