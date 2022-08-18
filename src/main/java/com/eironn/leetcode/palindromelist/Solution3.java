@@ -2,6 +2,7 @@ package com.eironn.leetcode.palindromelist;
 
 /**
  * 自己写的一个，思路按照网络上2的方案实现，速度很快。
+ * Java方法的参数传递是值传递，而对象的值拷贝实际就是一个变量引用。获取middle时head的结构未变，反转middle后head也发生了断裂。
  */
 public class Solution3 {
 
@@ -52,9 +53,9 @@ public class Solution3 {
     public static void main(String[] args) {
         Solution3 solution1 = new Solution3();
 //        ListNode nodeLast3 = new ListNode(3, null);
-//        ListNode nodeLast2 = new ListNode(1, null);
-//        ListNode nodeLast1 = new ListNode(2, nodeLast2);
-        ListNode nodeSecond = new ListNode(2, null);
+        ListNode nodeLast2 = new ListNode(1, null);
+        ListNode nodeLast1 = new ListNode(2, nodeLast2);
+        ListNode nodeSecond = new ListNode(2, nodeLast1);
         ListNode nodeFirst = new ListNode(1, nodeSecond);
         boolean result = solution1.isPalindrome(nodeFirst);
         System.out.println(result);
