@@ -4,6 +4,7 @@ import java.util.Stack;
 
 /**
  * 我自己写的，通过压栈来实现。
+ * 判断给定的链表是否为回文链表
  */
 public class Solution1 {
 
