@@ -20,6 +20,13 @@ public class Solution3 {
         return true;
     }
 
+    /**
+     * 经典的反转链表实现
+     * 循环中的业务算法逻辑：1.先拿到当前的下一个node;2.把当前node作为反转后的head，追加上之前反转的resp;3.将步骤2中的结果赋值给resp;4.拿到步骤1的下一个node，继续遍历
+     *
+     * @param node 原来的链表
+     * @return 反转后的链表
+     */
     public ListNode reverse(ListNode node) {
         if (null == node || null == node.next) {
             return node;
@@ -40,6 +47,8 @@ public class Solution3 {
             return node;
         }
         ListNode temp = node;
+        //s 含义slow，代表每次走一步 f 含义fast，代表每次走两步。
+        // 当f(两步)走到头的时候，代表s到达了中间
         ListNode s = temp;
         ListNode f = temp.next.next;
         while (null != f && null != f.next) {
